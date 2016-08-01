@@ -9,6 +9,8 @@
     <!-- For Bootstrap responsiveness -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--   For google map -->
+    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyDm6nkAd59HKE-opnSKEUP3cRqB1YHEO0c &libraries=places"%>
 
     <!-- Use title if it's in the page YAML frontmatter -->
     <title><%= current_page.data.title || "The Middleman" %></title>
@@ -26,8 +28,11 @@
 
   <body class="<%= page_classes %>">
 
+  <!-- layouts/layout.erb -->
     <%= partial "navbar" %>
-    <%= yield %>
-
+    <div class="main">
+      <%= yield %>
+    </div>
+    <%= partial "footer" %>
   </body>
 </html>
